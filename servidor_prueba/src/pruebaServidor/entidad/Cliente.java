@@ -3,7 +3,7 @@ package pruebaServidor.entidad;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Cliente {
+public class Cliente extends Usuario{
 
 	private int telefono;
 	private LocalDate fechaAlta;
@@ -55,5 +55,7 @@ public class Cliente {
 	public String toString() {
 		return "Cliente [telefono=" + telefono + ", fechaAlta=" + fechaAlta + "]";
 	}
+	
+
 
 }

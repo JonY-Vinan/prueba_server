@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Empleado {
+public class Empleado extends Usuario{
 	
 	private LocalDate fechaAlta;
 	private BigDecimal salario;
