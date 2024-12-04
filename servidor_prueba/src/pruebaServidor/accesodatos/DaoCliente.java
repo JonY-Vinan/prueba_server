@@ -4,6 +4,6 @@ import pruebaServidor.entidad.Cliente;
 
 public interface DaoCliente extends Dao<Cliente>{
 
-	//<Iterable>obtenerClientePorNombre(String nombre);
+	Iterable<Cliente>onbtenerClientePorNombre(String nombre);
 	
 }

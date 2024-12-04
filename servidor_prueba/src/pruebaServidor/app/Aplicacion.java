@@ -1,38 +1,43 @@
 package pruebaServidor.app;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
+import pruebaServidor.accesodatos.DaoCliente;
 import pruebaServidor.biblioteca.Util;
 import pruebaServidor.entidad.*;
+import pruebaServidor.factoria.GestionFactoria;
 
 public class Aplicacion {
 	private static final int SALIR = 0;
+	private static final DaoCliente DAO = GestionFactoria.getDaoCliente();
+	private static final boolean CON_ID = true;
+	private static final boolean SIN_ID = false;
 
 	public static void main(String[] args) {
 
 		int opc = 0;
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
 		do {
 			opc = menu();
 			switch (opc) {
 			case 1:
-				nuevoUsuario(usuarios);
+				nuevoCliente();
 				break;
 			case 2:
-				listarUsuario(usuarios);
+				listarUsuario();
 				break;
 			case 3:
-				buscarUsuarioPorId(usuarios);
+				buscarUsuarioPorId();
 				break;
 			case 4:
-				buscarUsuarioPorNombre(usuarios);
+				buscarUsuarioPorNombre();
 				break;
 			case 5:
-				modificarUsuario(usuarios);
+				modificarUsuario();
 				break;
 			case 6:
-				borrarUsuario(usuarios);
+				borrarUsuario();
 				break;
 
 			default:
@@ -42,68 +47,53 @@ public class Aplicacion {
 
 	}
 
-	private static void nuevoUsuario(ArrayList<Usuario> usuarios) {
-
-		Usuario usuario = new Usuario();
-		usuario.setDatos();
-		usuarios.add(usuario);
-
-		System.out.println("Usuasio registrado");
+	private static void nuevoCliente() {
+		var cliente = anadirCliente(SIN_ID);
 	}
 
-	private static void listarUsuario(ArrayList<Usuario> usuarios) {
-
-		for (Usuario usuario : usuarios) {
-			System.out.println(usuario.toString());
+	private static Cliente anadirCliente(boolean conId) {
+		Long id = null;
+		if (conId) {
+			id = (long) Util.leerInt("Id: ");
 		}
+
+		var login = Util.leerCadena("login");
+		var email = Util.leerCadena("email");
+		var fullName = Util.leerCadena("Nombre");
+		var status = UserStatus.ENABLED;
+		var privilege = UserPrivilege.USER;
+		var tipoUsuario = TipoUsuario.CLIENTE;
+		var password = Util.leerCadena("Contraseña");
+		var telefono = Util.leerInt("Telefono: ");
+
+		Cliente cliente = (Cliente) new Usuario(id, login, email, fullName, status, privilege,
+				tipoUsuario, password, null, null, telefono);
+		return cliente;
 	}
 
-	private static void buscarUsuarioPorId(ArrayList<Usuario> usuarios) {
+	private static void listarUsuario() {
+		// TODO Auto-generated method stub
 
-		int id = Util.leerInt("Introduce id a buscar: ");
-		for (Usuario usuario : usuarios) {
-			if (usuario.getIdUsuario() == id) {
-				System.out.println(usuario.toString());
-			}
-		}
 	}
 
-	private static void buscarUsuarioPorNombre(ArrayList<Usuario> usuarios) {
-		String nombre = Util.leerCadena("Introduce nombre a buscar: ");
-		for (Usuario usuario : usuarios) {
-			if (usuario.getFullName().compareTo(nombre) == 0) {
-				System.out.println(usuario.toString());
-			}
-		}
+	private static void buscarUsuarioPorId() {
+		// TODO Auto-generated method stub
+
 	}
 
-	private static void modificarUsuario(ArrayList<Usuario> usuarios) {
-		int id = Util.leerInt("Introduce id a buscar: ");
-		for (Usuario usuario : usuarios) {
-			if (usuario.getIdUsuario() == id) {
-				System.out.println(usuario.toString());
-				String login = Util.leerCadena("login: ");
-				String email = Util.leerCadena("email: ");
-				String fullName = Util.leerCadena("nombre: ");
-				usuario.setLogin(login);
-				usuario.setEmail(email);
-				usuario.setFullName(fullName);
-				usuarios.add(usuario);
-				break;
-			}
-		}
+	private static void buscarUsuarioPorNombre() {
+		// TODO Auto-generated method stub
+
 	}
 
-	private static void borrarUsuario(ArrayList<Usuario> usuarios) {
-		String nombre = Util.leerCadena("Introduce nombre a buscar: ");
-		for (Usuario usuario : usuarios) {
-			if (usuario.getFullName().compareTo(nombre) == 0) {
-				System.out.println(usuario.toString());
-				int opc = Util.leerInt("Seguro que quieres borrar este usuario? 1 = SI / 2 = NO");
-				if (opc == 1) {
-					usuarios.remove(usuario);
-				}}
-		}
+	private static void modificarUsuario() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private static void borrarUsuario() {
+		// TODO Auto-generated method stub
+
 	}
 
 	private static int menu() {

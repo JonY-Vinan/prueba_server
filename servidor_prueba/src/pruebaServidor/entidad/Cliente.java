@@ -5,6 +5,10 @@ import java.util.Objects;
 
 public class Cliente extends Usuario{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6545654277525712658L;
 	private int telefono;
 	private LocalDate fechaAlta;
 
@@ -55,6 +59,7 @@ public class Cliente extends Usuario{
 	public String toString() {
 		return "Cliente [telefono=" + telefono + ", fechaAlta=" + fechaAlta + "]";
 	}
+	
 	
 
 

@@ -89,7 +89,7 @@ public class Usuario implements Serializable {
 	public Usuario(Long idUsuario, String login, String email, String fullName, UserStatus status,
 			UserPrivilege privilege, TipoUsuario tipoUsuario, String password, Date lastAccess,
 			Date lastPasswordChange) {
-		super();
+		
 		this.idUsuario = idUsuario;
 		this.login = login;
 		this.email = email;

@@ -7,6 +7,7 @@ import java.util.Properties;
 import pruebaServidor.accesodatos.DaoCliente;
 
 public class GestionFactoria {
+	
 	private static DaoCliente daoCliente = null;
 
 	static {
@@ -27,5 +28,9 @@ public class GestionFactoria {
 				| InvocationTargetException | NoSuchMethodException | SecurityException | ClassNotFoundException e) {
 			throw new FabricaException("No se ha podido inicializar la fábrica", e);
 		}
+	}
+
+	public static DaoCliente getDaoCliente() {
+		return daoCliente;
 	}
 }
