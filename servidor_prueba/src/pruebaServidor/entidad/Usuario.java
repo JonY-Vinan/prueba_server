@@ -7,8 +7,11 @@ package pruebaServidor.entidad;
  */
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
+
+import pruebaServidor.biblioteca.Util;
 
 /**
  * Clase que define los atributos y los métodos de la entidad "Usuario".
@@ -359,9 +362,20 @@ public class Usuario implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Usuario{" + "idUsuario=" + idUsuario + ", login=" + login + ", email=" + email + ", fullName="
-				+ fullName + ", status=" + status + ", privilege=" + privilege + ", tipoUsuario=" + tipoUsuario
-				+ ", password=" + password + ", lastAccess=" + lastAccess + ", lastPasswordChange=" + lastPasswordChange
-				+ '}';
+		return "Usuario" + "ID: " + idUsuario + "login: " + login + " email: " + email + " Name: "
+				+ fullName + " status: " + status + " privilege: " + privilege + " tipoUsuario: " + tipoUsuario
+				+ "password: " + password + " lastAccess: " + lastAccess + " lastPasswordChange: " + lastPasswordChange;
+				
+	}
+
+	public void setDatos() {
+		idUsuario = (long) Util.leerInt("Id: ");
+		login = Util.leerCadena("login: ");
+		email = Util.leerCadena("email: ");
+		fullName = Util.leerCadena("nombre: ");
+		status = UserStatus.ENABLED;
+		privilege = UserPrivilege.USER;
+		tipoUsuario = TipoUsuario.CLIENTE;
+		password = Util.leerCadena("contraseña: ");;
 	}
 }
