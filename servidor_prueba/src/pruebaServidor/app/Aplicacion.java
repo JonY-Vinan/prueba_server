@@ -47,11 +47,16 @@ public class Aplicacion {
 
 	}
 
+
 	private static void nuevoCliente() {
-		var cliente = anadirCliente(SIN_ID);
+
+		var cliente = pedirCliente(SIN_ID);
+
+		DAO.insertar(cliente);
+
 	}
 
-	private static Cliente anadirCliente(boolean conId) {
+	private static Cliente pedirCliente(boolean conId) {
 		Long id = null;
 		if (conId) {
 			id = (long) Util.leerInt("Id: ");
@@ -66,9 +71,11 @@ public class Aplicacion {
 		var password = Util.leerCadena("Contraseña");
 		var telefono = Util.leerInt("Telefono: ");
 
-		Cliente cliente = (Cliente) new Usuario(id, login, email, fullName, status, privilege,
-				tipoUsuario, password, null, null, telefono);
+		Cliente cliente = new Cliente(id, login, email, fullName, status, privilege, tipoUsuario, password, null, null,
+				telefono, null);
+
 		return cliente;
+
 	}
 
 	private static void listarUsuario() {

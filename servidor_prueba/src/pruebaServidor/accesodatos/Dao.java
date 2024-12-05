@@ -2,23 +2,10 @@ package pruebaServidor.accesodatos;
 
 public interface Dao<T> {
 
-	default Iterable<T> obtenerTodos() {
-		throw new AccesoDatosException("NO IMPLEMENTADO"); 
-	}
-
-	default T obtenerPorId(Long id) {
-		throw new AccesoDatosException("NO IMPLEMENTADO");
-	}
-
-	default T insertar(T objeto) {
-		throw new AccesoDatosException("NO IMPLEMENTADO");
-	}
-
-	default T modificar(T objeto) {
-		throw new AccesoDatosException("NO IMPLEMENTADO");
-	}
-
-	default void borrar(Long id) {
-		throw new AccesoDatosException("NO IMPLEMENTADO");
-	}
+	Iterable<T> obtenerTodos();
+	T obtenerPorId(Long id);
+	
+	T insertar(T objeto);
+	T modificar(T objeto);
+	void borrar(Long id);
 }

@@ -59,11 +59,11 @@ public class Usuario implements Serializable {
 	/**
 	 * Fecha del último acceso del usuario.
 	 */
-	private Date lastAccess;
+	private LocalDate lastAccess;
 	/**
 	 * Fecha de la última vez en la que se ha modificado la contraseña del usuario.
 	 */
-	private Date lastPasswordChange;
+	private LocalDate lastPasswordChange;
 
 	/**
 	 * Constructor vacio de Usuario
@@ -87,9 +87,9 @@ public class Usuario implements Serializable {
 	 * @param lastPasswordChange
 	 */
 	public Usuario(Long idUsuario, String login, String email, String fullName, UserStatus status,
-			UserPrivilege privilege, TipoUsuario tipoUsuario, String password, Date lastAccess,
-			Date lastPasswordChange) {
-		
+			UserPrivilege privilege, TipoUsuario tipoUsuario, String password, LocalDate lastAccess,
+			LocalDate lastPasswordChange) {
+
 		this.idUsuario = idUsuario;
 		this.login = login;
 		this.email = email;
@@ -251,7 +251,7 @@ public class Usuario implements Serializable {
 	 *
 	 * @return el último acceso que se va a mostrar.
 	 */
-	public Date getLastAccess() {
+	public LocalDate getLastAccess() {
 		return lastAccess;
 	}
 
@@ -260,7 +260,7 @@ public class Usuario implements Serializable {
 	 *
 	 * @param lastAccess el último acceso que se va a guardar.
 	 */
-	public void setLastAccess(Date lastAccess) {
+	public void setLastAccess(LocalDate lastAccess) {
 		this.lastAccess = lastAccess;
 	}
 
@@ -269,7 +269,7 @@ public class Usuario implements Serializable {
 	 *
 	 * @return la fecha del último cambio de contraseña que se va a mostrar.
 	 */
-	public Date getLastPasswordChange() {
+	public LocalDate getLastPasswordChange() {
 		return lastPasswordChange;
 	}
 
@@ -279,7 +279,7 @@ public class Usuario implements Serializable {
 	 * @param lastPasswordChange la fecha del último cambio de contraseña que se va
 	 *                           a guardar.
 	 */
-	public void setLastPasswordChange(Date lastPasswordChange) {
+	public void setLastPasswordChange(LocalDate lastPasswordChange) {
 		this.lastPasswordChange = lastPasswordChange;
 	}
 
@@ -362,10 +362,10 @@ public class Usuario implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Usuario" + "ID: " + idUsuario + "login: " + login + " email: " + email + " Name: "
-				+ fullName + " status: " + status + " privilege: " + privilege + " tipoUsuario: " + tipoUsuario
-				+ "password: " + password + " lastAccess: " + lastAccess + " lastPasswordChange: " + lastPasswordChange;
-				
+		return "Usuario" + "ID: " + idUsuario + "login: " + login + " email: " + email + " Name: " + fullName
+				+ " status: " + status + " privilege: " + privilege + " tipoUsuario: " + tipoUsuario + "password: "
+				+ password + " lastAccess: " + lastAccess + " lastPasswordChange: " + lastPasswordChange;
+
 	}
 
 	public void setDatos() {
@@ -376,6 +376,7 @@ public class Usuario implements Serializable {
 		status = UserStatus.ENABLED;
 		privilege = UserPrivilege.USER;
 		tipoUsuario = TipoUsuario.CLIENTE;
-		password = Util.leerCadena("contraseña: ");;
+		password = Util.leerCadena("contraseña: ");
+		;
 	}
 }

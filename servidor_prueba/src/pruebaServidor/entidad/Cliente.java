@@ -1,9 +1,10 @@
 package pruebaServidor.entidad;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
-public class Cliente extends Usuario{
+public class Cliente extends Usuario {
 
 	/**
 	 * 
@@ -12,8 +13,14 @@ public class Cliente extends Usuario{
 	private int telefono;
 	private LocalDate fechaAlta;
 
-	public Cliente() {
 
+	public Cliente(Long idUsuario, String login, String email, String fullName, UserStatus status,
+			UserPrivilege privilege, TipoUsuario tipoUsuario, String password, LocalDate lastAccess, LocalDate lastPasswordChange,
+			int telefono, LocalDate fechaAlta) {
+		super(idUsuario, login, email, fullName, status, privilege, tipoUsuario, password, lastAccess,
+				lastPasswordChange);
+		this.telefono = telefono;
+		this.fechaAlta = fechaAlta;
 	}
 
 	public Cliente(int telefono, LocalDate fechaAlta) {
@@ -59,8 +66,5 @@ public class Cliente extends Usuario{
 	public String toString() {
 		return "Cliente [telefono=" + telefono + ", fechaAlta=" + fechaAlta + "]";
 	}
-	
-	
-
 
 }
