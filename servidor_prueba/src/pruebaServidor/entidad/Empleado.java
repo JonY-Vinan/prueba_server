@@ -6,6 +6,10 @@ import java.util.Objects;
 
 public class Empleado extends Usuario{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1006845286682742106L;
 	private LocalDate fechaAlta;
 	private BigDecimal salario;
 	private TipoEmpleado tipoEmpleado;

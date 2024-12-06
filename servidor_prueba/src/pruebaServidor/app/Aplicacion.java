@@ -1,8 +1,5 @@
 package pruebaServidor.app;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 import pruebaServidor.accesodatos.DaoCliente;
 import pruebaServidor.biblioteca.Util;
 import pruebaServidor.entidad.*;
@@ -11,7 +8,7 @@ import pruebaServidor.factoria.GestionFactoria;
 public class Aplicacion {
 	private static final int SALIR = 0;
 	private static final DaoCliente DAO = GestionFactoria.getDaoCliente();
-	private static final boolean CON_ID = true;
+	//private static final boolean CON_ID = true;
 	private static final boolean SIN_ID = false;
 
 	public static void main(String[] args) {
